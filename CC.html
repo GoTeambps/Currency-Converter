@@ -1,0 +1,168 @@
+<!-- 
+    Author :      
+Peeraya Chamnankit 
+Skylar Szeming So
+Brian Wingard
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency Converter</title>
+<style>
+  
+  @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+.select select{
+    background-color: gray;
+    color:white;
+    padding: 10px;
+    width: 180px;
+    font-size: 20px;
+    border:none;
+    box-shadow: 0 5px 25px rgba(0,0,0,.5);
+    -webkit-appearance: button;
+
+}
+    .select{
+        padding: 3%;
+    }
+    #content{
+        text-align: center;
+        width: 75%;
+        border-style: solid;
+  border-width: 5px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10%;
+    }
+    h1{
+        text-align: center;
+    }
+    .moveLeft{
+        margin-left: 10px;
+    }
+    button {
+  background-color:gray; /* Green */
+  border: none;
+  text-decoration: none; 
+  font-size: 13px;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0,0,0,.5);
+}
+textarea{
+    padding: 0;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    text-align: center;
+    resize: none;
+}
+input{
+    padding: 1%;
+    border: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+    <script>
+        function pop() {
+            var s1 = document.getElementById('slct1').value;
+            var s2 = document.getElementById('slct2').value;
+            var x = parseInt(document.getElementById('money').value);
+            var mid = parseInt(0);
+            var result;
+
+
+            if (s1 == 'THB1') {
+
+                mid = x * 0.033;
+            }
+
+            else if (s1 == 'HKD1') {
+                mid = x * 0.12;
+            }
+
+            else if (s1 == 'USD1') {
+                mid = x;
+            }
+
+            else if(s1 == 'MXP1'){
+                mid = x*0.052;
+            }
+            else if(s1 == 'ERO1'){
+                mid = x*1.1;
+            }
+
+            else if(s1 == 'YEN1'){
+                mid = x*0.0092;
+            }
+
+            if (s2 == 'THB2') {
+                result = mid * 30.29;
+            }
+
+            else if (s2 == 'HKD2') {
+                result = mid * 7.4;
+            }
+
+             else if (s2 == 'USD2') {
+                result = mid;
+            }
+            else if(s2== 'MXP2'){
+                result = mid*19.32;
+            }
+
+            else if(s2 == 'ERO2'){
+                result = mid*0.9;
+            }
+            else if(s2 == 'YEN2'){
+                result = mid*108.38;
+            }
+            var resultRound = Math.round(result*100)/100;
+            document.getElementById("return").innerHTML = (resultRound);
+        }
+
+    </script>
+<div id = "content" style="background-color: Aquamarine">
+    <h1 style="font-family:'Lobster', cursive; "> Currency Exchange </h1>
+    <input type="text" id="money">
+<br>
+<div class= "select">
+<select id="slct1" >
+        <option value="USD1"> US Dollar </option>
+        <option value="HKD1"> Hong Kong Dollar </option>
+        <option value="THB1"> Thai Baht </option>
+        <option value="MXP1"> Mexican Peso </option>
+        <option value="ERO1"> Euro</option>
+        <option value="YEN1"> Yen</option>
+    </select>
+    
+    <select id="slct2">
+        <option value="USD2"> US Dollar </option>
+        <option value="HKD2"> Hong Kong Dollar </option>
+        <option value="THB2"> Thai Baht </option>
+        <option value="MXP2"> Mexican Peso </option>
+        <option value="ERO2"> Euro</option>
+        <option value="YEN2"> Yen</option>
+    </select><br><br>
+    </div>
+    <button onclick="pop()">Convert</button><br><br>
+   <textarea id= "return"></textarea>
+ 
+</form>
+  </div>
+
+</body>
+
+</html>
